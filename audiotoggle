@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
 case $1 in
-	toggle) amixer -D pulse sset Master toggle ;;
-	inc) amixer -D pulse sset Master 5%+ >/dev/null 2>/dev/null ;;
-	dec) amixer -D pulse sset Master 5%- >/dev/null 2>/dev/null ;;
+	toggle) notify-send "Audio toggled $(amixer -D pulse sset Master toggle | awk '{print $6}' | tail -n 1)"; ;;
+	inc) notify-send "Audio increased to: $(amixer -D pulse sset Master 5%+ | awk '{print $5'} | tail -n 1)";;
+	dec) notify-send "Audio decreased to: $(amixer -D pulse sset Master 5%- | awk '{print $5'} | tail -n 1)";;
 esac
 
