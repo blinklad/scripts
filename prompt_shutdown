@@ -1,7 +1,8 @@
 #! /bin/env sh
 # Prompts the user for confirmation before shutting the computer down.
 
-case "$(printf "Yes\\nNo" | dmenu -b -i -l -2 -nb \#1c2e4d -p "Are you sure you want to shutdown now?")" in
-        Yes|yes|ye|y ) shutdown now; break;;
+case "$(printf "Yes\\nNo\\nReboot" | dmenu -b -i -l -2 -nb \#1c2e4d -p "Shutdown now?")" in
+        Yes ) shutdown now; break;;
         No ) exit;;
+        Reboot ) reboot exit;;
     esac
