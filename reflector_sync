@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo reflector --verbose -c "Australia" -c "United States" --latest 40 --number 10 --sort rate --protocol https --save /etc/pacman.d/mirrorlist
